@@ -31,10 +31,11 @@ const numberOfConsonants = (str) => {
     let counter = 0;
     let vowels = ['a', 'e', 'i', 'o', 'u', 'y'];
 
-    str = str.split('');
+   
+    str = str.toLowerCase().split('');
     
     str.forEach(caracter => {
-        if (vowels.includes(caracter)) {
+        if (!vowels.includes(caracter) && caracter >= 'a' && caracter <= 'z') {
             console.log(caracter);
             counter += 1
         }
@@ -43,7 +44,7 @@ const numberOfConsonants = (str) => {
     return counter;
 }
 
-console.log(numberOfConsonants("hello the world"));
+console.log(numberOfConsonants("Hello, The World!"));
 
 
 // Write a function that accepts a number and returns the multiplication table for that number up to 12.
@@ -59,13 +60,13 @@ multiplicationTable(5);
 /* 5. Write a function that accepts two parameters, a string and a callback function.
 The callback function should receive and print the reversed form of the string passed to its parent function. */
 
-const reverse = (str) => {
-    console.log(str.split('').reverse().join(''));
-
+const reverse = (reversedStr) => {
+  console.log(reversedStr);
 }
 
 const hello = (str, callback) => {
-    callback(str);
+  const reversedStr = str.split('').reverse().join('');
+  callback(reversedStr);
 }
 
 hello("hassane", reverse)
